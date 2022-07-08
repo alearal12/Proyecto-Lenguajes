@@ -12,21 +12,21 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :user_name, style: "display: block" %>
+    <%= form.text_field :user_name %>
   </div>
 
   <div>
     <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div>
     <%= form.label :user_type, style: "display: block" %>
-    <%= form.number_field :user_type %>
+    <%= form.text_field :user_type %>
   </div>
 
-  <div>
+  <div class ="from-group">
     <%= form.submit %>
   </div>
 <% end %>

@@ -52,66 +52,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_161631) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "appointments", force: :cascade do |t|
-    t.string "date"
-    t.bigint "doctor_id"
-    t.bigint "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
-  end
-
-  create_table "directors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "doctors", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.integer "code"
-    t.integer "specialty"
-    t.bigint "hospital_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hospital_id"], name: "index_doctors_on_hospital_id"
-  end
-
-  create_table "hospitals", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "medicines", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.integer "year"
-    t.bigint "director_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["director_id"], name: "index_movies_on_director_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
     t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.integer "identification_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -126,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_161631) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "user_name"
     t.string "password"
     t.integer "user_type"
     t.datetime "created_at", null: false
