@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProyectoLenguajes</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+   <head>
+      <title>ProyectoLenguajes</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
+   </head>
+   <body>
+      <header>
+         <% if logged_in? %>
+         Signed in as: <%= current_user.user_name %>
+         <li><%= link_to "Log out", logout_path, method: :delete %></li>
+         <% else %>
+         <li><%= link_to "Log In", login_path %></li>
+         <% end %>
+      </header>
+      <section>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+         <%= yield %>
+      </section>
+   </body>
 </html>

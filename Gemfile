@@ -3,7 +3,7 @@ git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.7.0'
 
-gem 'bcrypt'
+gem 'bcrypt-ruby'
 gem 'bootstrap', '~> 4.1.3'
 gem 'bootsnap', require: false
 gem 'font-awesome-sass', '~> 4.4.0'
