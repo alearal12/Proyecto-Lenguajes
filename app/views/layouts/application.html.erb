@@ -7,17 +7,32 @@
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
       <%= javascript_importmap_tags %>
+      <meta name= "viewport" content="width=device-width, initial-scale= 1">
    </head>
    <body>
-      <header>
+      <header class ="container">
+         <nav class= "navbar navbar-default">
+            <div class ="container-fluid">
+               <div class ="navbar-header">
+                  <%= link_to "Menu", menu_path, class: "navbar-brand"  %>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
          <% if logged_in? %>
-         Signed in as: <%= current_user.user_name %>
+         
+         <li><%= link_to "Users", users_path %></li>
+         <li><%= link_to "Recipes", plates_path %></li>
+         <li><%= link_to "Clients", plates_path %></li>
+         <li><%= link_to "Orders", orders_path %></li>
+         <li><%= link_to "Order status", orders_path %></li>
          <li><%= link_to "Log out", logout_path, method: :delete %></li>
          <% else %>
          <li><%= link_to "Log In", login_path %></li>
          <% end %>
+            </ul>
+         </div>
+      </nav>
       </header>
-      <section>
+      <section class="container">
 
          <%= yield %>
       </section>
