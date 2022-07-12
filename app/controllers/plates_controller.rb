@@ -1,26 +1,33 @@
 class PlatesController < ApplicationController
   before_action :set_plate, only: %i[ show edit update destroy ]
 
-  # GET /plates or /plates.json
   def index
+    if require_user or authenticated_user
+    else
     @plates = Plate.all
+    end
   end
 
-  # GET /plates/1 or /plates/1.json
   def show
+    if require_user or authenticated_user
+    end
   end
 
-  # GET /plates/new
   def new
+    if require_user or authenticated_user
+    else
     @plate = Plate.new
+    end
   end
 
-  # GET /plates/1/edit
   def edit
+    if require_user or authenticated_user
+    end
   end
 
-  # POST /plates or /plates.json
   def create
+    if require_user or authenticated_user
+    else
     @plate = Plate.new(plate_params)
 
     respond_to do |format|
@@ -33,9 +40,11 @@ class PlatesController < ApplicationController
       end
     end
   end
+  end
 
-  # PATCH/PUT /plates/1 or /plates/1.json
   def update
+    if require_user or authenticated_user
+    else
     respond_to do |format|
       if @plate.update(plate_params)
         format.html { redirect_to plate_url(@plate), notice: "Plate was successfully updated." }
@@ -46,9 +55,11 @@ class PlatesController < ApplicationController
       end
     end
   end
+  end
 
-  # DELETE /plates/1 or /plates/1.json
   def destroy
+    if require_user or authenticated_user
+    else
     @plate.destroy
 
     respond_to do |format|
@@ -56,14 +67,13 @@ class PlatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_plate
       @plate = Plate.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def plate_params
       params.require(:plate).permit(:name, :description, :price, :picture)
     end

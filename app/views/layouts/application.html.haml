@@ -21,9 +21,11 @@
               %li= link_to "Recipes", plates_path
               %li= link_to "Clients", plates_path
               %li= link_to "Orders", orders_path
-              %li= link_to "Order status", orders_path
               %li= link_to "Log out", logout_path, method: :delete
             - else
               %li= link_to "Log In", login_path
     %section.container
+      #flash
+        - flash.each do |key, value|
+          %div{:class => "flash alert #{alert_class(key)}"}= value
       = yield
