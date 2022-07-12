@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ProyectoLenguajes
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    %meta{:content => "width=device-width, initial-scale= 1", :name => "viewport"}/
+  %body
+    %header.container
+      %nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            = link_to "Menu", menu_path, class: "navbar-brand"
+          %ul.nav.navbar-nav.navbar-right
+            - if logged_in?
+              %li= link_to "Users", users_path
+              %li= link_to "Recipes", plates_path
+              %li= link_to "Clients", plates_path
+              %li= link_to "Orders", orders_path
+              %li= link_to "Order status", orders_path
+              %li= link_to "Log out", logout_path, method: :delete
+            - else
+              %li= link_to "Log In", login_path
+    %section.container
+      #flash
+        - flash.each do |key, value|
+          %div{:class => "flash alert #{alert_class(key)}"}= value
+      = yield
