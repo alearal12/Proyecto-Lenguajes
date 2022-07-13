@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_013702) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_220933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,68 +52,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_013702) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "appointments", force: :cascade do |t|
-    t.string "date"
-    t.bigint "doctor_id"
-    t.bigint "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
-  end
-
-  create_table "directors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "code"
-    t.integer "specialty"
-    t.bigint "hospital_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hospital_id"], name: "index_doctors_on_hospital_id"
-  end
-
-  create_table "hospitals", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "medicines", force: :cascade do |t|
+  create_table "clients", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.string "password"
+    t.string "direction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.integer "year"
-    t.bigint "director_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["director_id"], name: "index_movies_on_director_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
     t.integer "status"
+    t.bigint "plate_id"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "identification_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["plate_id"], name: "index_orders_on_plate_id"
   end
 
   create_table "plates", force: :cascade do |t|
@@ -121,13 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_013702) do
     t.string "description"
     t.integer "price"
     t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
