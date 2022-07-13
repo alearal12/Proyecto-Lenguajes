@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :set_plates
+  before_action :set_clients
 
   def index
     if require_user or authenticated_user
@@ -74,8 +76,16 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
+
+    def set_plates
+      @plates = Plate.all.map{|plate| ["#{plate.name} - #{plate.description} - #{plate.price}", plate.id]}
+    end
+
+    def set_clients
+      @clients = Client.all.map{|client| ["#{client.name} - #{client.email} - #{client.password} - #{client.direction}", client.id]}
+    end
     
     def order_params
-      params.require(:order).permit(:order_date, :status)
+      params.require(:order).permit(:order_date, :status, :plate_id, :client_id)
     end
 end

@@ -19,7 +19,7 @@
             - if logged_in?
               %li= link_to "Users", users_path
               %li= link_to "Recipes", plates_path
-              %li= link_to "Clients", plates_path
+              %li= link_to "Clients", clients_path
               %li= link_to "Orders", orders_path
               %li= link_to "Log out", logout_path, method: :delete
             - else

@@ -17,4 +17,14 @@
     = form.select(:status, options_for_select(statuses, @order.status),
   {prompt:"Seleccione"}, class:'form-control')
 
+    .form-group.ml-4.mr-4
+    = form.label :plate_id, class: "form-label required"
+    = form.select(:plate_id, options_for_select(@plates, @order.plate),
+                        {prompt:"Seleccione"}, class:"form-control")
+
+    .form-group.ml-4.mr-4
+    = form.label :client_id, class: "form-label required"
+    = form.select(:client_id, options_for_select(@clients, @order.client),
+                        {prompt:"Seleccione"}, class:"form-control")
+
     = form.submit

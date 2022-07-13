@@ -5,7 +5,6 @@ class CreatePlates < ActiveRecord::Migration[7.0]
       t.string :description
       t.integer :price
       t.string :picture
-
       t.timestamps
     end
   end
