@@ -78,7 +78,7 @@ class OrdersController < ApplicationController
     end
 
     def set_plates
-      @plates = Plate.all.map{|plate| ["#{plate.name} - #{plate.description} - #{plate.price}", plate.id]}
+      @plates = Plate.all.map{|plate| ["#{plate.name} - #{plate.price}", plate.id]}
     end
 
     def set_clients
