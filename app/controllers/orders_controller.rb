@@ -82,7 +82,7 @@ class OrdersController < ApplicationController
     end
 
     def set_clients
-      @clients = Client.all.map{|client| ["#{client.name} - #{client.email} - #{client.password} - #{client.direction}", client.id]}
+      @clients = Client.all.map{|client| ["#{client.name}", client.id]}
     end
     
     def order_params

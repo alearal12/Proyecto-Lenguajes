@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  #resources :clients
+  resources :clients
   resources :orders
   resources :plates
   resources :users
 
-  scope module: :api do
+  scope module: :api, path: "api" do
     resources :clients
+    resources :plates
+    resources :orders
   end
-
-  #scope module: :api, path: "api" do
-  # resources :clients
- # end
 
   root "sessions#new"
   get "signup", to: "users#new"

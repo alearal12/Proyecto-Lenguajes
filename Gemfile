@@ -22,7 +22,6 @@ gem 'stimulus-rails'
 gem 'turbolinks'
 gem 'turbo-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'rack-cors'
 
 
 group :development, :test do
