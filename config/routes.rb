@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :clients
+  #resources :clients
   resources :orders
   resources :plates
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  scope module: :api do
+    resources :clients
+  end
+
+  #scope module: :api, path: "api" do
+  # resources :clients
+ # end
 
   root "sessions#new"
   get "signup", to: "users#new"
