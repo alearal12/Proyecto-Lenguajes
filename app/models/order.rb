@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-    include Filterable
     belongs_to :plate
     belongs_to :client
     enum status: { delayed: 0, delivered: 1, in_time: 2, over_time: 3, cancelled: 4}
