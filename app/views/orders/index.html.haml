@@ -1,7 +1,22 @@
 %p{:style => "color: green"}= notice
 %h1 Orders
 
-%br
+
+
+%div
+  = form_tag orders_path, method: :get do
+    = submit_tag 'See all', class: 'btn search-button'
+
+<br>
+
+%div
+  = form_tag orders_path, method: :get do
+    = text_field_tag 'search[date_from]', @search.date_from
+    = text_field_tag 'search[date_to]', @search.date_to
+    = text_field_tag 'search[order_status]', @search.order_status
+    = submit_tag 'Search', class: 'btn search-button'
+
+
 
 #orders
   - @orders.each do |order|
