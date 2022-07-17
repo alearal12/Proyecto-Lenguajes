@@ -1,6 +1,11 @@
-%p{:style => "color: green"}= notice
-%h1 Orders
+.page-header.m-4
+  %p{:style => "color: green"}= notice
 
+  %h1.mb-4
+    = "List of orders"
+    .float-right
+      = link_to "New order",
+                new_order_path, class: "btn btn-primary"
 
 
 %div
@@ -11,19 +16,29 @@
 
 %div
   = form_tag orders_path, method: :get do
-    = text_field_tag 'search[date_from]', @search.date_from
+    = text_field_tag  'search[date_from]', @search.date_from
     = text_field_tag 'search[date_to]', @search.date_to
     = text_field_tag 'search[order_status]', @search.order_status
     = submit_tag 'Search', class: 'btn search-button'
 
+<br>
 
+%table.table.table-striped
+  %thead
+    %tr
+      %th= "Order date"
+      %th= "Order status"
+      %th= "Plate name"
+      %th= "Client name"
 
-#orders
-  - @orders.each do |order|
-    = render order
-    %p
-      = link_to "Show this order", order
-= link_to "New order", new_order_path
-
-
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.order_date
+        %td= order.status
+        %td= order.plate.name
+        %td= order.client.name
+        %td= link_to "Show this order", order, class: "btn btn-info"
+        %td= link_to "Edit this order", edit_order_path(order), class: "btn btn-success"
+        %td= button_to "Delete this order", order, method: :delete, class: "btn btn-danger"
 
