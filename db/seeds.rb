@@ -1,3 +1,11 @@
 User.create(user_name: "admin", password: "admin", user_type: 0)
-
 User.create(user_name:"kitchen", password:"123", user_type:1) 
+
+Client.create(name:"Alejandro", email: "alejandro@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Paulo", email: "paulo@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Juan", email: "juan@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Pedro", email: "pedro@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Maria", email: "maria@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Sofia", email: "sofia@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Valery", email: "valery@gmail.com" , password:"Prueba12345!", direction: "Grecia")
+Client.create(name:"Julia", email: "julia@gmail.com" , password:"Prueba12345!", direction: "Grecia")
