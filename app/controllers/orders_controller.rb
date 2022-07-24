@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       @search = OrderSearch.new(params[:search])
       @orders = @search.date_scope if params[:search].present? && params[:search] != ""
       @orders = @search.status_scope if params[:search].present? && params[:search] != ""
+      /@orders = @search.client_scope if params[:search].present? && params[:search] != ""/
 
     end
   end

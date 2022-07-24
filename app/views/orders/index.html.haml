@@ -16,9 +16,10 @@
 
 %div
   = form_tag orders_path, method: :get do
-    = text_field_tag  'search[date_from]', @search.date_from
-    = text_field_tag 'search[date_to]', @search.date_to
-    = text_field_tag 'search[order_status]', @search.order_status
+    = text_field_tag  'search[date_from]', @search.date_from, placeholder: 'Starting date'
+    = text_field_tag 'search[date_to]', @search.date_to , placeholder: 'Ending date'
+    = text_field_tag 'search[order_status]', @search.order_status , placeholder: 'Order status'
+    = text_field_tag 'search[client_id]', @search.client_id , placeholder: 'Client identification'
     = submit_tag 'Search', class: 'btn search-button'
 
 <br>
