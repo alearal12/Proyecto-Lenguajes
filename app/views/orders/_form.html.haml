@@ -1,12 +1,5 @@
-= form_with(model: order) do |form|
-  - if order.errors.any?
-    %div{:style => "color: red"}
-      %h2
-        = pluralize(order.errors.count, "error")
-        prohibited this order from being saved:
-      %ul
-        - order.errors.each do |error|
-          %li= error.full_message
+= form_for @order, validate: true do |form|
+
   %div
     = form.label :order_date, style: "display: block"
     = form.date_field :order_date
@@ -27,4 +20,8 @@
     = form.select(:client_id, options_for_select(@clients, @order.client),
                         {prompt:"Seleccione"}, class:"form-control")
 
-    = form.submit
+  .row
+    .offset-3.col-3
+      = link_to "Back to orders", orders_path, class: "btn btn-secondary btn-block"
+    .col-3
+      = button_tag "Save" , class: "btn btn-outline-success btn-block", 'data-disable-with': "Save"

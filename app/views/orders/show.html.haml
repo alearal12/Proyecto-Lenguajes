@@ -1,8 +1,24 @@
-%p{:style => "color: green"}= notice
-= render @order
-%div
-  = link_to "Edit this order", edit_order_path(@order)
-  |
-  \#{link_to "Back to orders", orders_path}
-  
-  \#{button_to "Destroy this order", @order, method: :delete}
+.page-header.m-4
+  %p{:style => "color: green"}= notice
+
+.card.ml-4.m-4
+  .card-body
+    %h5.card-title= "Order date"
+    %p.card-text &nbsp #{@order.order_date}
+.card.ml-4.m-4
+  .card-body
+    %h5.card-title= "Order status"
+    %p.card-text &nbsp #{@order.order_date}
+.card.ml-4.m-4
+  .card-body
+    %h5.card-title= "Plate "
+    %p.card-text &nbsp #{@order.plate.name} - Price:  #{@order.plate.price}
+.card.ml-4.m-4
+  .card-body
+    %h5.card-title= "Client "
+    %p.card-text &nbsp #{@order.client.name}
+
+.row.mt-3
+  .offset-3.col-3
+    = link_to "Back to orders",
+                orders_path, class: "btn btn-secondary btn-block"
