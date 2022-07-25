@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'bootsnap', require: false
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'haml'
+gem "image_processing", ">= 1.2"
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jquery-rails'

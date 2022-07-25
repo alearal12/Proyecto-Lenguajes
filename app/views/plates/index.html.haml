@@ -23,7 +23,7 @@
         %td= plate.name
         %td= plate.description
         %td= plate.price
-        %td= plate.picture
+        %td= image_tag (plate.picture) , skip_pipeline: true
         %td= link_to "Show this plate", plate, class: "btn btn-info"
         %td= link_to "Edit this plate", edit_plate_path(plate), class: "btn btn-success"
         %td= button_to "Delete this plate", plate, method: :delete, class: "btn btn-danger"
