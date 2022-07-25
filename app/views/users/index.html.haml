@@ -1,8 +1,24 @@
-%p{:style => "color: green"}= notice
-%h1 Users
-#users
-  - @users.each do |user|
-    = render user
-    %p
-      = link_to "Show this user", user
-= link_to "New user", new_user_path
+.page-header.m-4
+  %p{:style => "color: green"}= notice
+
+  %h1.mb-4
+    = "List of users"
+    .float-right
+      = link_to "New user",
+                new_user_path, class: "btn btn-primary"
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= "User Name"
+      %th= "User Type"
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.user_name
+        %td= user.user_type
+        %td= link_to "Show this user", user, class: "btn btn-info"
+        %td= link_to "Edit this user", edit_user_path(user), class: "btn btn-success"
+        %td= button_to "Delete this user", user, method: :delete, class: "btn btn-danger"

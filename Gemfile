@@ -22,6 +22,7 @@ gem 'stimulus-rails'
 gem 'turbolinks'
 gem 'turbo-rails'
 gem 'uglifier', '>= 1.3.0'
+gem "image_processing", ">= 1.2"
 
 
 group :development, :test do

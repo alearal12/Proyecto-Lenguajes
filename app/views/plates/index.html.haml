@@ -1,8 +1,29 @@
-%p{:style => "color: green"}= notice
-%h1 Plates
-#plates
-  - @plates.each do |plate|
-    = render plate
-    %p
-      = link_to "Show this plate", plate
-= link_to "New plate", new_plate_path
+.page-header.m-4
+  %p{:style => "color: green"}= notice
+
+  %h1.mb-4
+    = "List of plates"
+    .float-right
+      = link_to "New plate",
+                new_plate_path, class: "btn btn-primary"
+
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= "Name"
+      %th= "Description"
+      %th= "Price"
+      %th= "Picture"
+
+  %tbody
+    - @plates.each do |plate|
+      %tr
+        %td= plate.name
+        %td= plate.description
+        %td= plate.price
+        %td= plate.picture
+        %td= link_to "Show this plate", plate, class: "btn btn-info"
+        %td= link_to "Edit this plate", edit_plate_path(plate), class: "btn btn-success"
+        %td= button_to "Delete this plate", plate, method: :delete, class: "btn btn-danger"

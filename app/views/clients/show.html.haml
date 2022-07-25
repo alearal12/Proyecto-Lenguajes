@@ -1,8 +1,25 @@
-%p{:style => "color: green"}= notice
-= render @client
-%div
-  = link_to "Edit this client", edit_client_path(@client)
-  |
-  \#{link_to "Back to clients", clients_path}
-  
-  \#{button_to "Destroy this client", @client, method: :delete}
+.page-header.m-4
+  %p{:style => "color: green"}= notice
+
+.card.ml-4.m-4
+  .card-body
+    %strong= "Name:"
+    %p.card-text &nbsp #{@client.name}
+.card.ml-4.m-4
+  .card-body
+    %strong= "Email"
+    %p.card-text &nbsp #{@client.email}
+.card.ml-4.m-4
+  .card-body
+    %strong= "Password "
+    %p.card-text &nbsp #{@client.password}
+.card.ml-4.m-4
+  .card-body
+    %strong= "Direction "
+    %p.card-text &nbsp #{@client.direction}
+
+.row.mt-3
+  .offset-3.col-3
+    = link_to "Back to clients",
+                clients_path, class: "btn btn-secondary btn-block"
+    = link_to "Edit this client", edit_client_path(@client), class: "btn btn-secondary btn-block"

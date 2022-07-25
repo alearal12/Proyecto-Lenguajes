@@ -77,4 +77,6 @@ class PlatesController < ApplicationController
     def plate_params
       params.require(:plate).permit(:name, :description, :price, :picture, :order_id)
     end
+    
+    
 end
