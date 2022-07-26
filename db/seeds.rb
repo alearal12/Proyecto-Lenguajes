@@ -1,5 +1,6 @@
 User.create(user_name: "admin", password: "admin", user_type: 0)
 User.create(user_name:"kitchen", password:"123", user_type:1) 
+User.create(user_name:"kitchen", password:"kitchen", user_type:1)
 
 Client.create(name:"Alejandro", email: "alejandro@gmail.com" , password:"Prueba12345!", direction: "Grecia")
 Client.create(name:"Paulo", email: "paulo@gmail.com" , password:"Prueba12345!", direction: "Grecia")
