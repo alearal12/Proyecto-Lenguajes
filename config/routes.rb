@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :clients
     resources :plates
     resources :orders
+    resources :users
   end
 
   root "sessions#new"
