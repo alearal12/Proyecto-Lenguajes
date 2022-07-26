@@ -3,5 +3,5 @@ json.array! @plates do |plate|
     json.name plate.name
     json.description plate.description
     json.price plate.price
-    json.picture plate.picture
+
 end  
